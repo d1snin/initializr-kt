@@ -12,7 +12,7 @@ repositories {
     maven(url = "https://jitpack.io")
 }
 
-implementation("uno.d1s:yaspeller-kt:$yaspellerVersion")
+implementation("uno.d1s:initializr-kt:$initializrKtVersion")
 ```
 
 ### Example usage
