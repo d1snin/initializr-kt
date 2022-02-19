@@ -15,9 +15,9 @@ public class ProjectConfigurationDsl {
 
     public var artifact: String? = null
 
-    public var packageName: String? = null
-
     public var name: String? = null
+
+    public var packageName: String? = null
 
     public var description: String? = null
 
