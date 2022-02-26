@@ -34,7 +34,7 @@ public fun defaultProjectConfiguration(configuration: ProjectConfigurationDsl.()
     }
 }
 
-public suspend fun newProject(configuration: ProjectConfigurationDsl.() -> Unit): ByteArray =
+public suspend fun newProject(configuration: ProjectConfigurationDsl.() -> Unit = {}): ByteArray =
     initializr.newProject(
         dslConverter.toApi(ProjectConfigurationDsl().apply(configuration))
     )
