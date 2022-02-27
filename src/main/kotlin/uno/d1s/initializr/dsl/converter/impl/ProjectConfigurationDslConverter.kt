@@ -7,22 +7,22 @@ import java.util.concurrent.atomic.AtomicReference
 
 internal object ProjectConfigurationDslConverter : DslConverter<ProjectConfigurationDsl, ProjectConfiguration> {
 
-    override var defaultProjectConfiguration: AtomicReference<ProjectConfigurationDsl?> = AtomicReference()
+    override var defaults: AtomicReference<ProjectConfigurationDsl> = AtomicReference()
 
     override fun toApi(dsl: ProjectConfigurationDsl): ProjectConfiguration = dsl.run {
-        val defaults = defaultProjectConfiguration.get()
+        val def = defaults.get()
 
         ProjectConfiguration(
-            type ?: defaults?.type ?: throw exception("type"),
-            language ?: defaults?.language ?: throw exception("language"),
-            springBootVersion ?: defaults?.springBootVersion ?: throw exception("springBootVersion"),
-            group ?: defaults?.group ?: throw exception("group"),
-            artifact ?: defaults?.artifact ?: throw exception("artifact"),
-            name ?: defaults?.name ?: throw exception("name"),
-            packageName ?: defaults?.packageName ?: throw exception("packageName"),
-            description ?: defaults?.description ?: throw exception("description"),
-            packaging ?: defaults?.packaging ?: throw exception("packaging"),
-            javaVersion ?: defaults?.javaVersion ?: throw exception("javaVersion"),
+            (type ?: def?.type) ?: throw exception("type"),
+            (language ?: def?.language) ?: throw exception("language"),
+            (springBootVersion) ?: def?.springBootVersion ?: throw exception("springBootVersion"),
+            (group ?: def?.group) ?: throw exception("group"),
+            (artifact ?: def?.artifact) ?: throw exception("artifact"),
+            (name ?: def?.name) ?: throw exception("name"),
+            (packageName ?: def?.packageName) ?: throw exception("packageName"),
+            (description ?: def?.description) ?: throw exception("description"),
+            (packaging ?: def?.packaging) ?: throw exception("packaging"),
+            (javaVersion ?: def?.javaVersion) ?: throw exception("javaVersion"),
             dependencies
         )
     }

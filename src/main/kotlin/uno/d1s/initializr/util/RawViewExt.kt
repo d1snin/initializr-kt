@@ -1,8 +1,10 @@
 package uno.d1s.initializr.util
 
-import uno.d1s.initializr.domain.internal.RawView
+import uno.d1s.initializr.domain.api.RawView
 
-internal inline fun <reified T> fromRawString(raw: String): T where T : Enum<T>, T : RawView<T> =
-    enumValues<T>().first {
+public class RawEnumValueNotFoundException(public val raw: String) : RuntimeException()
+
+internal inline fun <reified T> fromRawString(raw: String): T where T : Enum<T>, T : RawView =
+    enumValues<T>().firstOrNull {
         it.raw == raw
-    }
+    } ?: throw RawEnumValueNotFoundException(raw)

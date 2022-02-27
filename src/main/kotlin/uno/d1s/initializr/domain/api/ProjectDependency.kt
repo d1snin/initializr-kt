@@ -1,12 +1,11 @@
 package uno.d1s.initializr.domain.api
 
-import uno.d1s.initializr.domain.internal.RawView
 import uno.d1s.initializr.util.fromRawString
 
 public enum class ProjectDependency(
     public val projectName: String,
     public override val raw: String
-) : RawView<ProjectDependency> {
+) : RawView {
     THYMELEAF("Thymeleaf", "thymeleaf"),
     SPRING_NATIVE("Spring Native", "native"),
     SPRING_BOOT_DEVTOOLS("Spring Boot DevTools", "devtools"),
@@ -128,6 +127,7 @@ public enum class ProjectDependency(
     CONFIG_CLIENT_TAS("Config Client (TAS)", "scs-config-client"),
     SERVICE_REGISTRY_TAS("Service Registry (TAS)", "scs-service-registry");
 
-
-    public override fun fromRaw(raw: String): ProjectDependency = fromRawString(raw)
+    public companion object {
+        public fun fromRaw(raw: String): ProjectDependency = fromRawString(raw)
+    }
 }
