@@ -8,8 +8,8 @@ plugins {
     kotlin("plugin.serialization") version "1.6.10"
 }
 
-group = "uno.d1s"
-version = "0.2.0-alpha.0"
+group = "dev.d1s"
+version = "0.2.1-alpha.0"
 
 repositories {
     mavenCentral()

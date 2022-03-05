@@ -12,7 +12,7 @@ repositories {
     maven(url = "https://jitpack.io")
 }
 
-implementation("uno.d1s:initializr-kt:$initializrKtVersion")
+implementation("dev.d1s:initializr-kt:$initializrKtVersion")
 ```
 
 ### Example usage
@@ -20,8 +20,8 @@ implementation("uno.d1s:initializr-kt:$initializrKtVersion")
 ```kotlin
 suspend fun main() {
     val zip = newProject {
-        packageName = "uno.d1s.test"
-        group = "uno.d1s"
+        packageName = "dev.d1s.test"
+        group = "dev.d1s"
         artifact = "test"
         name = "test"
         language = ProjectLanguage.KOTLIN
@@ -62,8 +62,8 @@ suspend fun main() {
     
     // you will not be required to satisfy preconfigured properties:
     val zip = newProject {
-        packageName = "uno.d1s.anotherTest"
-        group = "uno.d1s"
+        packageName = "dev.d1s.anotherTest"
+        group = "dev.d1s"
         artifact = "another-test"
         name = "another-test"
         dependencies += setOf(
