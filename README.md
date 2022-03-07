@@ -12,7 +12,9 @@ repositories {
     maven(url = "https://jitpack.io")
 }
 
-implementation("dev.d1s:initializr-kt:$initializrKtVersion")
+dependencies {
+    implementation("dev.d1s:initializr-kt:$initializrKtVersion")
+}
 ```
 
 ### Example usage
