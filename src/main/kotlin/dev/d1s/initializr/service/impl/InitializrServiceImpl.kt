@@ -1,30 +1,24 @@
 package dev.d1s.initializr.service.impl
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import io.ktor.client.*
-import io.ktor.client.engine.cio.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import dev.d1s.initializr.constant.*
 import dev.d1s.initializr.domain.api.Project
 import dev.d1s.initializr.domain.api.ProjectConfiguration
 import dev.d1s.initializr.dto.ErrorDto
 import dev.d1s.initializr.exception.ProjectCreationFailedException
+import dev.d1s.initializr.factory.httpClient
+import dev.d1s.initializr.factory.objectMapper
 import dev.d1s.initializr.service.InitializrService
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-internal object InitializrServiceImpl : InitializrService {
+internal class InitializrServiceImpl : InitializrService {
 
-    private val httpClient: HttpClient = HttpClient(CIO) {
-        expectSuccess = false
-    }
+    private val httpClient = httpClient()
 
-    private val objectMapper = ObjectMapper().apply {
-        registerKotlinModule()
-    }
+    private val objectMapper = objectMapper()
 
     override suspend fun newProject(configuration: ProjectConfiguration): Project = withContext(Dispatchers.IO) {
         Project(configuration,

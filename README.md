@@ -20,8 +20,10 @@ dependencies {
 ### Example usage
 
 ```kotlin
+private val initializr = initializr()
+
 suspend fun main() {
-    val zip = newProject {
+    val zip = initializr.createProject {
         packageName = "dev.d1s.test"
         group = "dev.d1s"
         artifact = "test"
@@ -30,7 +32,7 @@ suspend fun main() {
         type = ProjectType.GRADLE
         javaVersion = JavaVersion.VERSION_11
         packaging = ProjectPackaging.JAR
-        springBootVersion = "3.0.0-M1" // latest
+        springBootVersion = "3.0.0-M2" // latest
         dependencies += setOf(
             ProjectDependency.SPRING_REACTIVE_WEB,
             ProjectDependency.SPRING_DATA_JPA
@@ -51,10 +53,12 @@ the default project configuration.
 Configure the default project configuration:
 
 ```kotlin
+private val initializr = initializr()
+
 suspend fun main() {
-    
+
     // async
-    defaultProjectConfiguration {
+    initializr.setDefaultProjectConfiguration {
         language = ProjectLanguage.KOTLIN
         type = ProjectType.GRADLE
         javaVersion = JavaVersion.VERSION_11
@@ -63,7 +67,7 @@ suspend fun main() {
     }
     
     // you will not be required to satisfy preconfigured properties:
-    val zip = newProject {
+    val zip = initializr.createProject {
         packageName = "dev.d1s.anotherTest"
         group = "dev.d1s"
         artifact = "another-test"

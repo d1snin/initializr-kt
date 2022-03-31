@@ -5,7 +5,7 @@ import dev.d1s.initializr.dsl.ProjectConfigurationDsl
 import dev.d1s.initializr.dsl.converter.DslConverter
 import java.util.concurrent.atomic.AtomicReference
 
-internal object ProjectConfigurationDslConverter : DslConverter<ProjectConfigurationDsl, ProjectConfiguration> {
+internal class ProjectConfigurationDslConverter : DslConverter<ProjectConfigurationDsl, ProjectConfiguration> {
 
     override var defaults: AtomicReference<ProjectConfigurationDsl> = AtomicReference()
 

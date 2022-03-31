@@ -15,14 +15,14 @@ repositories {
     mavenCentral()
 }
 
-extra["ktorVersion"] = "2.0.0-beta-1"
-extra["jacksonVersion"] = "2.13.1"
+val ktorVersion: String by project
+val jacksonVersion: String by project
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("io.ktor:ktor-client-cio-jvm:${property("ktorVersion")}")
-    implementation("com.fasterxml.jackson.core:jackson-databind:${property("jacksonVersion")}")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${property("jacksonVersion")}")
+    implementation("io.ktor:ktor-client-cio-jvm:$ktorVersion")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-annotations-common"))
 }
