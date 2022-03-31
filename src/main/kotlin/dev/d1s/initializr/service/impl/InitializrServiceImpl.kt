@@ -1,8 +1,8 @@
 package dev.d1s.initializr.service.impl
 
 import dev.d1s.initializr.constant.*
-import dev.d1s.initializr.domain.api.Project
-import dev.d1s.initializr.domain.api.ProjectConfiguration
+import dev.d1s.initializr.api.Project
+import dev.d1s.initializr.api.ProjectConfiguration
 import dev.d1s.initializr.dto.ErrorDto
 import dev.d1s.initializr.exception.ProjectCreationFailedException
 import dev.d1s.initializr.factory.httpClient

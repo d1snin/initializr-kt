@@ -1,6 +1,6 @@
 package dev.d1s.initializr.dsl
 
-import dev.d1s.initializr.domain.api.*
+import dev.d1s.initializr.api.*
 import java.util.*
 
 public class ProjectConfigurationDsl {

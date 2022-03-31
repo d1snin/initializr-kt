@@ -1,4 +1,4 @@
-package dev.d1s.initializr.domain.api
+package dev.d1s.initializr.api
 
 public data class Project(
     val configuration: ProjectConfiguration,

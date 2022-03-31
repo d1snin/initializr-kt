@@ -1,6 +1,6 @@
 package dev.d1s.initializr.dsl.converter.impl
 
-import dev.d1s.initializr.domain.api.ProjectConfiguration
+import dev.d1s.initializr.api.ProjectConfiguration
 import dev.d1s.initializr.dsl.ProjectConfigurationDsl
 import dev.d1s.initializr.dsl.converter.DslConverter
 import java.util.concurrent.atomic.AtomicReference
