@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "dev.d1s"
-version = "0.2.1-alpha.0"
+version = "1.0.0-stable.0"
 
 repositories {
     mavenCentral()
