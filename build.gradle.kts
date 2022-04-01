@@ -13,10 +13,14 @@ version = "0.2.1-alpha.0"
 
 repositories {
     mavenCentral()
+    maven(url = "https://jitpack.io/")
 }
 
 val ktorVersion: String by project
 val jacksonVersion: String by project
+val teabagsVersion: String by project
+val striktVersion: String by project
+val mockkVersion: String by project
 
 dependencies {
     implementation(kotlin("stdlib"))
@@ -25,6 +29,10 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-annotations-common"))
+    testImplementation("dev.d1s.teabags:teabag-testing:$teabagsVersion")
+    testImplementation("io.strikt:strikt-jvm:$striktVersion")
+    testImplementation("io.mockk:mockk:$mockkVersion")
+    testImplementation("io.ktor:ktor-client-mock:$ktorVersion")
 }
 
 tasks.withType<Test> {

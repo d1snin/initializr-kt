@@ -20,7 +20,7 @@ internal class InitializrServiceImpl : InitializrService {
 
     private val objectMapper = objectMapper()
 
-    override suspend fun newProject(configuration: ProjectConfiguration): Project = withContext(Dispatchers.IO) {
+    override suspend fun createProject(configuration: ProjectConfiguration): Project = withContext(Dispatchers.IO) {
         Project(configuration,
             configuration.run {
                 val response = httpClient.get(BASE_URL) {

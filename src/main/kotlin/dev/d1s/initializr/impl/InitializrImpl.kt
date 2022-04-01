@@ -12,12 +12,12 @@ internal class InitializrImpl : Initializr {
 
     private val initializrService = initializrService()
 
-    override suspend fun setDefaultProjectConfiguration(configuration: ProjectConfigurationDsl.() -> Unit) {
-        dslConverter.defaults.set(ProjectConfigurationDsl().apply(configuration))
-    }
-
     override suspend fun createProject(configuration: ProjectConfigurationDsl.() -> Unit): Project =
-        initializrService.newProject(
+        initializrService.createProject(
             dslConverter.toApi(ProjectConfigurationDsl().apply(configuration))
         )
+
+    override fun setDefaultProjectConfiguration(configuration: ProjectConfigurationDsl.() -> Unit) {
+        dslConverter.defaults.set(ProjectConfigurationDsl().apply(configuration))
+    }
 }
