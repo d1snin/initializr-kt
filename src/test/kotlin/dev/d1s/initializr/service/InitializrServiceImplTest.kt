@@ -108,7 +108,7 @@ internal class InitializrServiceImplTest {
         }
     }
 
-    private fun newInstanceWithMockedDeps(useBadClient: Boolean = false, block: (InitializrServiceImpl) -> Unit) {
+    private inline fun newInstanceWithMockedDeps(useBadClient: Boolean = false, block: (InitializrServiceImpl) -> Unit) {
         mockkStatic("dev.d1s.initializr.factory.InternalComponentsKt") {
             every {
                 httpClient()
